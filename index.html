@@ -4,27 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 1. 社交分享元标签 (让转发时显示卡片) -->
+    <!-- 1. 社交分享元标签 (用于生成转发卡片) -->
     <title>我想和你建立小三关系</title>
     <meta property="og:title" content="我想和你建立小三关系">
     <meta property="og:description" content="成为我的小三，让QQ记录我们的每日地下情">
-    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=A%20pink%20lollipop%20in%20the%20shape%20of%20a%20heart%20on%20a%20pink%20background%20with%20rounded%20corners%2C%20no%20black%20border%2C%20clean%20and%20cute%2C%203D%20rendering%2C%20high%20quality&image_size=square">
+    <!-- 重点：这里指向你仓库里的图片地址 -->
+    <meta property="og:image" content="https://daisycelandine.github.io/DaisyCelandine.github-io/preview.jpg">
+    <meta property="og:url" content="https://daisycelandine.github.io/DaisyCelandine.github-io/">
     <meta property="og:type" content="website">
 
     <style>
-        /* 页面整体背景，模拟聊天背景色 */
         body {
             margin: 0;
             padding: 0;
             background-color: #f2f2f2;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
 
-        /* 模拟 QQ 转发卡片的容器 */
+        /* 模拟 QQ 转发卡片样式 */
         .card-container {
             width: 90%;
             max-width: 320px;
@@ -34,17 +36,16 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             cursor: pointer;
             transition: transform 0.1s;
-            user-select: none;
-            text-decoration: none; /* 去除链接下划线 */
+            text-decoration: none;
             display: block;
+            position: relative;
         }
 
         .card-container:active {
-            transform: scale(0.98); /* 点击时的缩放反馈 */
+            transform: scale(0.98);
             background-color: #f9f9f9;
         }
 
-        /* 卡片上半部分：标题、描述和图片 */
         .card-main {
             padding: 16px;
             display: flex;
@@ -63,20 +64,12 @@
             font-weight: 500;
             margin-bottom: 8px;
             line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
 
         .description {
             font-size: 13px;
             color: #888888;
             line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
 
         .thumb {
@@ -87,7 +80,6 @@
             flex-shrink: 0;
         }
 
-        /* 底部分割线和 QQ 标识 */
         .card-footer {
             margin: 0 16px;
             padding: 10px 0;
@@ -103,14 +95,12 @@
         }
 
         .footer-text {
-            font-size: 12px;
+            font-size: 11px;
             color: #999;
         }
 
-        /* 隐藏的提示 */
         .hint {
-            position: absolute;
-            bottom: 40px;
+            margin-top: 20px;
             font-size: 12px;
             color: #bbb;
         }
@@ -118,24 +108,26 @@
 </head>
 <body>
 
-    <!-- 模拟卡片布局，点击后跳转 -->
+    <!-- 微信抓取补丁：在页面最顶部放一张隐藏的大图，增加抓取成功率 -->
+    <img src="preview.png" style="position: absolute; top: -9999px; width: 300px;">
+
     <a href="https://www.stardewvalley.net/" class="card-container">
         <div class="card-main">
             <div class="text-content">
                 <div class="title">我想和你建立小三关系</div>
                 <div class="description">成为我的小三，让QQ记录我们的每日地下情</div>
             </div>
-            <!-- 棒棒糖预览图 -->
-            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=A%20pink%20lollipop%20in%20the%20shape%20of%20a%20heart%20on%20a%20pink%20background%20with%20rounded%20corners%2C%20no%20black%20border%2C%20clean%20and%20cute%2C%203D%20rendering%2C%20high%20quality&image_size=square" class="thumb">
+            <!-- 使用仓库内的图片 -->
+            <img src="preview.jpg" class="thumb">
         </div>
         <div class="card-footer">
-            <!-- 经典的 QQ 小企鹅图标 -->
+            <!-- QQ小图标 -->
             <img src="https://pub.idqqimg.com/pc/misc/files/20170928/58d7938360d249d68f635c234a946808.png" class="qq-icon">
             <span class="footer-text">QQ</span>
         </div>
     </a>
 
-    <div class="hint">点击卡片以继续</div>
+    <div class="hint">点击上方卡片进入游戏</div>
 
 </body>
 </html>
